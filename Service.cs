@@ -1,10 +1,13 @@
-﻿namespace ClassLibrary1;
+﻿using System.Text;
+using Microsoft.VisualBasic.CompilerServices;
 
-public class Service: IService
+namespace ClassLibrary1;
+
+public class Service : IService
 {
     public object FindElement(IEnumerable<object> data, int index)
     {
-        throw new NotImplementedException();
+        return data.ElementAt(index);
     }
 
     public bool AreTheseStringsEqual(string str1, string str2)
@@ -24,27 +27,63 @@ public class Service: IService
 
     public IEnumerable<int> FindValuesGreaterThan(IEnumerable<int> data, int value)
     {
-        throw new NotImplementedException();
+        List<int> list = new List<int>();
+        foreach (var VARIABLE in data)
+        {
+            if (VARIABLE > value)
+            {
+                list.Add(VARIABLE);
+            }
+        }
+
+        return list;
     }
 
     public double FindAverage(IEnumerable<int> data)
     {
-        throw new NotImplementedException();
+        return data.Average();
     }
 
     public string SwapCharacters(string testString, char swapA, char swapB)
     {
-        throw new NotImplementedException();
+        StringBuilder sb = new StringBuilder();
+        foreach (var c in testString)
+        {
+            if (c == swapA)
+            {
+                sb.Append(swapB);
+            }
+            else if (c == swapB)
+            {
+                sb.Append(swapA);
+            }
+            else
+            {
+                sb.Append(c);
+            }
+        }
+
+        return sb.ToString();
     }
 
     public int ConvertStringToIntIfValidIntegerValue(string testString)
     {
-        throw new NotImplementedException();
+        return int.Parse(testString);
+    }
+
+    private class MyClass
+    {
+        public int num;
+        public int Num
+        {
+            get => num;
+            set => num = value;
+        }
     }
 
     public object CreateObjectWithPropretyWhichHasAccessors()
     {
-        throw new NotImplementedException();
+        return new MyClass();
     }
 
     public IEnumerable<object> CreateListWithObjectsContainingIntAndItsSquare(IEnumerable<int> data)

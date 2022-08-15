@@ -80,7 +80,6 @@ public class ServiceExampleSolutions: IService
             }
         }
     }
-    
 
     public object CreateObjectWithPropretyWhichHasAccessors()
     {
@@ -88,8 +87,7 @@ public class ServiceExampleSolutions: IService
     }
     
     
-    public Dictionary<int, int> CreateDictionrayWithIntsAndTheirFrequency(
-        IEnumerable<int> data)
+    public Dictionary<int, int> CreateDictionrayWithIntsAndTheirFrequency(IEnumerable<int> data)
     {
         return data.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
     }
