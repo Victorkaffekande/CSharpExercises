@@ -9,7 +9,7 @@ public class Service: IService
 
     public bool AreTheseStringsEqual(string str1, string str2)
     {
-        throw new NotImplementedException();
+        return str1 == str2;
     }
 
     public int Factorial(int n)
