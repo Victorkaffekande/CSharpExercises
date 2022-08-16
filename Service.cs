@@ -43,7 +43,6 @@ public class Service : IService
     {
         return data.Average();
     }
-
     public string SwapCharacters(string testString, char swapA, char swapB)
     {
         StringBuilder sb = new StringBuilder();
@@ -62,7 +61,6 @@ public class Service : IService
                 sb.Append(c);
             }
         }
-
         return sb.ToString();
     }
 
@@ -74,6 +72,10 @@ public class Service : IService
     private class MyClass
     {
         public int num;
+        public int square;
+
+        public int Square => square;
+
         public int Num
         {
             get => num;
@@ -88,12 +90,29 @@ public class Service : IService
 
     public IEnumerable<object> CreateListWithObjectsContainingIntAndItsSquare(IEnumerable<int> data)
     {
-        throw new NotImplementedException();
+        List<MyClass> list = new List<MyClass>();
+        foreach (var i in data)
+        {
+            MyClass mc = new MyClass();
+            mc.num = i;
+            mc.square = i * i;
+            list.Add(mc);
+        }
+
+        return list;
     }
 
     public Dictionary<int, int> CreateDictionrayWithIntsAndTheirFrequency(IEnumerable<int> data)
     {
-        throw new NotImplementedException();
+        Dictionary<int, int> dic = new Dictionary<int, int>();
+
+        foreach (var num in data)
+        {
+            var tmp = data.Select(x=>x);
+            
+            data.Count();
+        }
+        return dic;
     }
 
     public IEnumerable<int> CreateListOfHighestFiveNumbers(IEnumerable<int> data)
